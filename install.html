@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installation &mdash; PyEnchant 3.1.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tutorial" href="tutorial.html" />
+    <link rel="prev" title="PyEnchant" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> PyEnchant
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installing-the-enchant-c-library">Installing the Enchant C library</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#on-linux">On Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#on-macos">On macOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#on-windows">On Windows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#using-the-binary-wheel">Using the binary wheel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-mingw">Using MinGW</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-a-dictionary">Installing a dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">API Listing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shootout.html">Provider Shootout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyEnchant</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/install.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>PyEnchant is compatible with Python versions <strong>3.5</strong> and above at
+the time of writing - <a class="reference external" href="https://github.com/pyenchant/pyenchant/blob/master/tox.ini">tox.ini</a>
+being the authoritative source.</p>
+<p>The PyEnchant package is available <a class="reference external" href="https://pypi.org/project/pyenchant">on pypi</a>.</p>
+<p>You can install it with <code class="docutils literal notranslate"><span class="pre">pip</span></code> as usual.</p>
+<p>However, to work properly, PyEnchant needs to:</p>
+<ul class="simple">
+<li><p>find the Enchant C library</p></li>
+<li><p>find the dictionaries for your particular language</p></li>
+</ul>
+<p>The way to achieve this depends on the platform you are using:</p>
+<div class="section" id="installing-the-enchant-c-library">
+<h2>Installing the Enchant C library<a class="headerlink" href="#installing-the-enchant-c-library" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="on-linux">
+<h3>On Linux<a class="headerlink" href="#on-linux" title="Permalink to this headline">¶</a></h3>
+<p>The quickest way is to install <cite>libenchant</cite> using the package manager of
+your current distribution. PyEnchant tries to be compatible with a large
+number of <cite>libenchant</cite> versions. If you find an incompatibility with
+your <cite>libenchant</cite> installation, feel free to <a class="reference external" href="https://github.com/pyenchant/pyenchant/issues">open a bug report</a>.</p>
+<p>To detect the <cite>libenchant</cite> binaries, PyEnchant uses
+<a class="reference external" href="https://docs.python.org/3/library/ctypes.html#finding-shared-libraries">ctypes.util.find_library()</a>,
+which requires <cite>ldconfig</cite>, <cite>gcc</cite>, <cite>objdump</cite> or <cite>ld</cite> to be installed.
+This is the case on most major distributions,
+however statically linked distributions (like Alpine Linux)
+might not bring along <cite>binutils</cite> by default.</p>
+</div>
+<div class="section" id="on-macos">
+<h3>On macOS<a class="headerlink" href="#on-macos" title="Permalink to this headline">¶</a></h3>
+<p>The quickest way is to install <cite>libenchant</cite> using <a class="reference external" href="https://brew.sh/">Homebrew</a>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">brew update</span>
+<span class="go">brew install enchant</span>
+</pre></div>
+</div>
+<p>If you are using <a class="reference external" href="https://www.macports.org/">MacPorts</a> you can also
+install the <a class="reference external" href="https://github.com/macports/macports-ports/tree/master/textproc/enchant2">enchant2</a> package. Please make sure to add
+the port variants for the spellers you’d like to use. For example, to
+build the enchant library for aspell and hunspell, use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo port install enchant2 +aspell +hunspell +applespell
+</pre></div>
+</div>
+</div>
+<div class="section" id="on-windows">
+<h3>On Windows<a class="headerlink" href="#on-windows" title="Permalink to this headline">¶</a></h3>
+<p>The <cite>enchant</cite> C library depends on <cite>glib2</cite>, which poses some interesting challenges.</p>
+<p>There are two ways to use install the PyEnchant library on Windows,
+both with their pros and cons.</p>
+<div class="section" id="using-the-binary-wheel">
+<h4>Using the binary wheel<a class="headerlink" href="#using-the-binary-wheel" title="Permalink to this headline">¶</a></h4>
+<p>The Windows binary wheels on <em>pypi.org</em> contain a pre-compiled <cite>enchant</cite> library,
+if your Python version is compatible, it will get used by <cite>pip</cite> automatically.</p>
+<p>Pros:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>“Just works” in the majority of cases</p></li>
+</ul>
+</div></blockquote>
+<p>Cons:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The only provider is <code class="docutils literal notranslate"><span class="pre">hunspell</span></code></p></li>
+<li><p>The only installed dictionary is for the English language</p></li>
+<li><p>A copy of the <cite>glib2.dll</cite> and other dependencies are included</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="using-mingw">
+<h4>Using MinGW<a class="headerlink" href="#using-mingw" title="Permalink to this headline">¶</a></h4>
+<p>An other way to use <cite>pyenchant</cite> is to install MinGW (for instance
+with <a class="reference external" href="https://chocolatey.org/">Chocolatey</a>), then use  <cite>pacman</cite> to install
+the <cite>libenchant</cite> and all its dependencies.</p>
+<p>In that case, you can ask pip to <strong>not</strong> use the wheel by running it like this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install --no-binary pyenchant</span>
+</pre></div>
+</div>
+<p>Pros:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>You are using the “official” way to build <cite>enchant</cite> one Windows, thanks
+to the work of the <cite>MinGW</cite> maintainers</p></li>
+<li><p>You can use all the supported providers</p></li>
+<li><p>You can add a new language using <cite>pacman</cite></p></li>
+</ul>
+</div></blockquote>
+<p>Cons:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>It only works with the <code class="docutils literal notranslate"><span class="pre">python3</span></code> binary of the <code class="docutils literal notranslate"><span class="pre">MinGW</span></code> distribution,
+so typically <em>not</em> the one you’ve installed from <cite>python.org</cite>.</p></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+</div>
+<div class="section" id="installing-a-dictionary">
+<h2>Installing a dictionary<a class="headerlink" href="#installing-a-dictionary" title="Permalink to this headline">¶</a></h2>
+<p>Let’s assume you want to use PyEnchant on a text written in German.</p>
+<p>First, use the Enchant Python API to list known languages and providers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">enchant</span>
+<span class="n">broker</span> <span class="o">=</span> <span class="n">enchant</span><span class="o">.</span><span class="n">Broker</span><span class="p">()</span>
+<span class="n">broker</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="n">broker</span><span class="o">.</span><span class="n">list_languages</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">enchant.list_languages()</span></code> shows <code class="docutils literal notranslate"><span class="pre">de_DE</span></code>, you’re done and can move on to the
+tutorial section.</p>
+<p>If not, you should install the dictionary for one of the listed providers.</p>
+<p>So for instance, if the <code class="docutils literal notranslate"><span class="pre">hunspell</span></code> is listed as a Enchant provider, you
+should install the German dictionary for the <code class="docutils literal notranslate"><span class="pre">hunspell</span></code> provider.</p>
+<p>On <strong>Linux</strong> and <strong>macOS</strong>, this can be done by installing the <code class="docutils literal notranslate"><span class="pre">hunspell-de</span></code>
+package.</p>
+<p>On <strong>Windows</strong>, if you have installed PyEnchant from a
+wheel, you can download the hunspell dictionary files you need
+(both the <cite>.dic</cite> and <cite>.aff</cite> extensions) and put them inside
+<code class="docutils literal notranslate"><span class="pre">/path/to/enchant/data/mingw&lt;bits&gt;/enchant/share/hunspell</span></code>. You
+can find many dictionaries in <a class="reference external" href="https://cgit.freedesktop.org/libreoffice/dictionaries/tree/">LibreOffice sources</a>.</p>
+</div>
+<div class="section" id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<p>Despite our best efforts, it is possible that the procedures documented above
+do not work.</p>
+<p>To have a clue about what is wrong, you can set the <cite>PYENCHANT_VERBOSE_FIND</cite> environment
+variable to any non-empty value and run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-c</span> <span class="pre">'import</span> <span class="pre">enchant'</span></code>.</p>
+<p>If you can’t figure out what is wrong, it’s probably a bug in PyEnchant,
+so feel free to open an issue on GitHub,  preferably containing the output
+of the above command.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tutorial.html" class="btn btn-neutral float-right" title="Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="PyEnchant" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2011, Ryan Kelly
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
