@@ -25,16 +25,16 @@ jobs:
       with:
         python-version: ${{ matrix.python }}
 
-    - name: Install libenchant-dev (linux)
-      if: matrix.platform == 'linux'
-      run: |
-        sudo apt install libenchant-dev
+    # - name: Install libenchant-dev (linux)
+    #   if: matrix.platform == 'linux'
+    #   run: |
+    #     sudo apt install libenchant-dev
 
-    - name: Install enchant (macOS)
-      if: matrix.platform == 'macos'
-      run: |
-        brew update
-        brew install enchant
+    # - name: Install enchant (macOS)
+    #   if: matrix.platform == 'macos'
+    #   run: |
+    #     brew update
+    #     brew install enchant
 
     - name: Install tox
       run: |
